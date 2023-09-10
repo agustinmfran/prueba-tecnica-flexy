@@ -1,6 +1,8 @@
 .login-main {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: left;
 }
 
 .bienvenido-container h1 {
@@ -24,7 +26,7 @@
 .form-container {
   display: flex;
   flex-direction: column;
-  width: 90%;
+  width: 330px;
   margin-top: 16px;
 }
 
@@ -106,6 +108,8 @@
 .register-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin-top: 4px;
   width: 90%;
 }
@@ -118,6 +122,7 @@
   background: linear-gradient(180deg, #6941c6 0%, #53389e 100%);
   border-radius: 8px;
   height: 48px;
+  width: 330px;
   font-size: 16px;
   border: none;
   cursor: pointer;
@@ -155,7 +160,12 @@
     width: 60%;
   }
 
+  .form-container {
+    width: 90%;
+  }
+
   .btn-register {
     background: #7065f0;
+    width: 100%;
   }
 }
