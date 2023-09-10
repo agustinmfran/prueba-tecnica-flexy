@@ -121,7 +121,12 @@
   font-weight: bold;
   font-family: "Plus Jakarta Sans", sans-serif;
   text-align: center;
-  background: linear-gradient(180deg, #6941c6 0%, #53389e 100%);
+  background: rgb(105, 65, 198);
+  background: linear-gradient(
+    90deg,
+    rgba(105, 65, 198, 1) 0%,
+    rgba(83, 56, 158, 1) 0%
+  );
   border-radius: 8px;
   height: 48px;
   font-size: 16px;
@@ -159,5 +164,9 @@
   .login-main {
     height: max-content;
     width: 60%;
+  }
+
+  .btn-register {
+    background: #7065f0;
   }
 }
