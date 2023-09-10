@@ -1,0 +1,51 @@
+@media screen and (max-width: 768px) {
+  main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .left-main-container {
+    width: 100%;
+  }
+
+  #agente {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  body {
+    height: 100vh;
+  }
+
+  .app-main {
+    display: flex;
+    flex-direction: row;
+    height: 100vh;
+  }
+
+  .left-main-container {
+    margin: 4px;
+    width: 40%;
+  }
+
+  #agente {
+    width: 60%;
+    height: 100vh;
+  }
+
+  Header {
+    height: 10vh;
+    border-bottom: 2px solid #f0effb;
+  }
+
+  .login-container {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    height: 80vh;
+  }
+}

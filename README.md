@@ -6,7 +6,7 @@ Bienvenido a **Prueba Flexy**, un proyecto hecho en React para completar la prue
 
 1. Clona este repositorio en tu máquina local con Git:
 
-   git clone https://github.com/agustinmfran/prueba-flexy.git
+   git clone https://github.com/agustinmfran/prueba-tecnica-flexy.git
 
 2. Navega al directorio del proyecto:
 
