@@ -145,6 +145,7 @@
   text-align: center;
   font-size: 14px;
   margin-top: 4px;
+  margin-bottom: -12px;
 }
 
 @media screen and (min-width: 769px) {

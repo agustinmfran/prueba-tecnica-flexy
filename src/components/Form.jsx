@@ -16,10 +16,15 @@ const telefono =
 
 const registroSchema = Yup.object().shape({
   file: Yup.mixed(),
-  nombre: Yup.string().required("Nombre requerido"),
+  nombre: Yup.string()
+    .required("Nombre requerido")
+    .min(3, "Debe tener al menos 3 caracteres")
+    .max(20, "Máximo 20 caracteres"),
   tel: Yup.string()
     .matches(telefono, "Teléfono inválido")
-    .required("Teléfono requerido"),
+    .required("Teléfono requerido")
+    .min(6, "Debe tener al menos 6 números")
+    .max(20, "Máximo 20 números"),
   email: Yup.string().email("Email inválido").required("Email requerido"),
   password: Yup.string()
     .min(8, "Debe tener al menos 8 caracteres")
@@ -106,7 +111,9 @@ function Form() {
             </div>
           </div>
           {touched.password && errors.password ? (
-            <div className="error">{errors.password}</div>
+            <div id="password-error" className="error">
+              {errors.password}
+            </div>
           ) : (
             <a href="#">¿Olvidaste tu contraseña?</a>
           )}
