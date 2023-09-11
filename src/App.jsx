@@ -4,17 +4,15 @@ import Login from "./components/Login";
 
 function App() {
   return (
-    <body>
-      <main className="app-main">
-        <div className="left-main-container">
-          <Header />
-          <div className="login-container">
-            <Login />
-          </div>
+    <main className="app-main">
+      <div className="left-main-container">
+        <Header />
+        <div className="login-container">
+          <Login />
         </div>
-        <img id="agente" src="/images/agente.png" alt="agente" />
-      </main>
-    </body>
+      </div>
+      <img id="agente" src="/images/agente.png" alt="agente" />
+    </main>
   );
 }
 
