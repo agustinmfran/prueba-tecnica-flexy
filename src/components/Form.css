@@ -87,10 +87,6 @@
   cursor: pointer;
 }
 
-.eye:hover {
-  opacity: 1.5;
-}
-
 .form-container a {
   font-weight: 500;
   font-family: "Plus Jakarta Sans", sans-serif;
