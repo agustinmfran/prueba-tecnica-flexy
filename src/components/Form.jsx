@@ -15,14 +15,14 @@ const telefono =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const registroSchema = Yup.object().shape({
-  file: Yup.mixed().required("Imagen requerida"),
+  file: Yup.mixed(),
   nombre: Yup.string().required("Nombre requerido"),
   tel: Yup.string()
     .matches(telefono, "Teléfono inválido")
     .required("Teléfono requerido"),
   email: Yup.string().email("Email inválido").required("Email requerido"),
   password: Yup.string()
-    .min(8, "Mínimo 8 caracteres")
+    .min(8, "Debe tener al menos 8 caracteres")
     .max(20, "Máximo 20 caracteres")
     .required("Contraseña requerida"),
 });
@@ -44,11 +44,18 @@ function Form() {
       onSubmit={onSubmit}
       validationSchema={registroSchema}
     >
-      {({ errors, touched, handleSubmit }) => (
+      {({ values, errors, touched, handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <div className="perfil-container">
             <img src="/images/icono.svg" alt="perfil" />
-            <Field className="field" id="file" type="file" name="file" />
+            <Field
+              className="field"
+              id="file"
+              type="file"
+              name="file"
+              value={values.file}
+              accept="image/*"
+            />
             <label htmlFor="file">Subí tu foto de perfil</label>
           </div>
           {touched.file && errors.file ? (
@@ -100,8 +107,10 @@ function Form() {
           </div>
           {touched.password && errors.password ? (
             <div className="error">{errors.password}</div>
-          ) : null}
-          <a href="#">¿Olvidaste tu contraseña?</a>
+          ) : (
+            <a href="#">¿Olvidaste tu contraseña?</a>
+          )}
+
           <button type="submit" className="btn-register">
             Registrate
           </button>
