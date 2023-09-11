@@ -10,6 +10,7 @@ function Form() {
   };
   const { handleChange, handleSubmit } = useFormik({
     initialValues: {
+      file: null,
       nombre: "",
       tel: "",
       email: "",
@@ -23,7 +24,8 @@ function Form() {
     <form onSubmit={handleSubmit}>
       <div className="perfil-container">
         <img src="/images/icono.svg" alt="perfil" />
-        <p>Subí tu foto de perfil</p>
+        <input id="file" type="file" name="file" onChange={handleChange} />
+        <label htmlFor="file">Subí tu foto de perfil</label>
       </div>
       <input
         type="text"

@@ -29,18 +29,30 @@
   opacity: 0.5;
 }
 
+#file {
+  display: none;
+}
+
 .perfil-container {
   display: flex;
   flex-direction: row;
 }
 
-.perfil-container p {
+.perfil-container label {
   color: #000929;
   font-family: "Plus Jakarta Sans", sans-serif;
   text-align: start;
   font-size: 16px;
   font-weight: 500;
   margin-left: 8px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.perfil-container label:hover {
+  text-decoration: underline;
 }
 
 .password-container {
