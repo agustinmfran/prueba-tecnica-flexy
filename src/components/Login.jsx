@@ -3,7 +3,7 @@ import "./Login.css";
 
 function Login() {
   return (
-    <main className="login-main">
+    <section className="login-section">
       <div className="bienvenido-container">
         <h1>¡Bienvenido!</h1>
         <p>Conviertete ahora en un agente Flexy.</p>
@@ -16,7 +16,7 @@ function Login() {
           ¿Ya ténes una cuenta? <a href="#">Iniciá sesión</a>
         </p>
       </div>
-    </main>
+    </section>
   );
 }
 
