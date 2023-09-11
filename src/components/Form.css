@@ -11,7 +11,7 @@
   justify-content: space-between;
 }
 
-.form-container form input {
+.field {
   margin-top: 24px;
   border-radius: 8px;
   border: 2px solid #e0def7;
@@ -24,7 +24,7 @@
   padding-left: 12px;
 }
 
-.form-container form input::placeholder {
+.field::placeholder {
   color: #000929;
   opacity: 0.5;
 }
@@ -137,6 +137,14 @@
   color: #000929;
   cursor: pointer;
   text-decoration: none;
+}
+
+.error {
+  color: #6c727f;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 4px;
 }
 
 @media screen and (min-width: 769px) {
