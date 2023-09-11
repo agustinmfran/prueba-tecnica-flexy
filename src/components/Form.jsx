@@ -18,8 +18,10 @@ function Form() {
     },
     onSubmit: (values) => {
       console.log(values);
+      alert("Usuario Registrado:  " + JSON.stringify(values));
     },
   });
+
   return (
     <form onSubmit={handleSubmit}>
       <div className="perfil-container">

@@ -6,7 +6,7 @@ function Login() {
     <section className="login-section">
       <div className="bienvenido-container">
         <h1>¡Bienvenido!</h1>
-        <p>Conviertete ahora en un agente Flexy.</p>
+        <p>Convertite ahora en un agente Flexy.</p>
       </div>
       <div className="form-container">
         <Form />
