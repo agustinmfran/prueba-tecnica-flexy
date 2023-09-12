@@ -4,7 +4,7 @@ const telefono =
   /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/;
 
 const validFileExtensions = {
-  image: ["jpg", "gif", "png", "jpeg", "svg", "webp"],
+  image: ["jpg", "png", "jpeg", "pdf"],
 };
 
 function isValidFileType(fileName, fileType) {
@@ -15,12 +15,11 @@ function isValidFileType(fileName, fileType) {
 }
 
 export const registroSchema = Yup.object().shape({
-  file: Yup.mixed()
-    .nullable()
-    .notRequired()
-    .test("is-valid-type", "No es un archivo de imágen válido", (value) =>
-      isValidFileType(value, "image")
-    ),
+  file: Yup.mixed().test(
+    "is-valid-type",
+    "Imágen requerida (JPG, JPEG, PNG, PDF)",
+    (value) => isValidFileType(value, "image")
+  ),
   nombre: Yup.string()
     .required("Nombre requerido")
     .min(3, "Debe tener al menos 3 caracteres")
