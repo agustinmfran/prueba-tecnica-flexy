@@ -10,6 +10,11 @@
   flex-direction: column;
   justify-content: space-between;
 }
+.perfil {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
 
 .field {
   margin-top: 24px;

@@ -1,18 +1,33 @@
 import { useState } from "react";
 import { Formik, Field } from "formik";
 import { registroSchema, initialValues } from "./FormValidation";
+import Axios from "axios";
+import { Image } from "cloudinary-react";
 import "./Form.css";
 
 function Form() {
   const [shown, setShown] = useState(false);
+  const [file, setFile] = useState("");
 
   const switchShown = function (e) {
     e.preventDefault();
     setShown(!shown);
   };
 
+  const uploadImage = (files) => {
+    const formData = new FormData();
+    formData.append("file", files[0]);
+    formData.append("upload_preset", "vzjyfhl8");
+
+    Axios.post(
+      "https://api.cloudinary.com/v1_1/dwxhpn7u9/image/upload",
+      formData
+    ).then((res) => {
+      setFile(res.data.url);
+    });
+  };
+
   const onSubmit = (values) => {
-    console.log(values);
     alert("Usuario Registrado:  " + JSON.stringify(values));
   };
 
@@ -22,16 +37,22 @@ function Form() {
       onSubmit={onSubmit}
       validationSchema={registroSchema}
     >
-      {({ errors, touched, handleSubmit }) => (
+      {({ values, errors, touched, handleSubmit }) => (
         <form onSubmit={handleSubmit}>
           <div className="perfil-container">
-            <img src="/images/icono.svg" alt="perfil" />
+            {file ? (
+              <Image className="perfil" cloudName="dwxhpn7u9" publicId={file} />
+            ) : (
+              <img src="/images/icono.svg" alt="perfil" />
+            )}
             <Field
               className="field"
               id="file"
+              value={values.file}
               type="file"
               name="file"
               accept="image/*"
+              onChange={(event) => uploadImage(event.target.files)}
             />
             <label htmlFor="file">Subí tu foto de perfil</label>
           </div>
@@ -41,6 +62,7 @@ function Form() {
           <Field
             className="field"
             type="text"
+            value={values.nombre}
             placeholder="Nombre y Apellido"
             name="nombre"
           />
@@ -50,6 +72,7 @@ function Form() {
           <Field
             className="field"
             type="tel"
+            value={values.tel}
             placeholder="+54 9 221 000 0000"
             name="tel"
           />
@@ -59,6 +82,7 @@ function Form() {
           <Field
             className="field"
             type="email"
+            value={values.email}
             placeholder="hola@tuemail.com"
             name="email"
           />
@@ -69,6 +93,7 @@ function Form() {
             <Field
               className="field"
               id="password"
+              value={values.password}
               name="password"
               type={shown ? "text" : "password"}
               placeholder="Ingresá tu contraseña"
