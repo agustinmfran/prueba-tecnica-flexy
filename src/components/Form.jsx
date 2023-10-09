@@ -101,7 +101,7 @@ function Form() {
             <div className="eye-container">
               <img
                 className="eye"
-                src={shown ? "images/eye-closed.png" : "/images/eye.svg"}
+                src={shown ? "images/eye.svg" : "/images/eye-closed.png"}
                 alt="eye"
                 onClick={switchShown}
               />
